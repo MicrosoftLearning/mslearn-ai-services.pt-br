@@ -2,9 +2,7 @@
 lab:
   title: Usar o Personalizador de IA com Notebooks do Visual Studio Code para simular um loop
 ---
-> **Importante**: a partir do outono de 2023, não será mais possível criar novos recursos do Personalizador.
-
-> **Observação**: para concluir este exercício, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true).
+> **Importante**: a partir do outono de 2023, não será mais possível criar novos recursos do Personalizador. Use esse repositório somente para referência se você tiver um recurso do Personalizador existente.
 
 Neste exercício, você usará o Personalizador de IA do Azure com notebooks no Visual Studio Code para simular um loop de aprendizado.
 
