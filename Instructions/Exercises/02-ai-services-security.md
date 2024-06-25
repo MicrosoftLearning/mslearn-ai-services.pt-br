@@ -68,7 +68,7 @@ Quando você criou seu recurso de serviços de IA do Azure, duas chaves de auten
 4. Salve as alterações e execute o seguinte comando:
 
     ```
-    sh rest-test.sh
+    ./rest-test.cmd
     ```
 
 O comando retorna um documento JSON contendo informações sobre o idioma detectado nos dados de entrada (que deve ser inglês).

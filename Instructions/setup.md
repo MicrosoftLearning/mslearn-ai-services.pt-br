@@ -12,7 +12,7 @@ Os exercícios devem ser concluídos em um ambiente de laboratório hospedado. S
 
 ### Sistema operacional base (Windows 11)
 
-#### Windows 10
+#### Windows 11
 
 Instale o Windows 11 e aplique todas as atualizações.
 
@@ -22,7 +22,7 @@ Instalar o [Edge (Chromium)](https://microsoft.com/edge)
 
 ### SDK do .NET Core
 
-1. Faça download e instale de https://dotnet.microsoft.com/download (faça download do SDK do .NET Core - não apenas o tempo de execução). Se você estiver executando os laboratórios neste curso em sua própria máquina, precisará do .NET 7.0 instalado.
+1. Faça download e instale de https://dotnet.microsoft.com/download (faça download do SDK do .NET Core - não apenas o tempo de execução). Caso esteja executando os laboratórios neste curso em seu próprio computador, deverá ter o .NET 7.0. Os laboratórios foram testados no .NET 7.0, mas ele está sem suporte no momento. Você poderá usar o 8.0, mas poderá haver alguns problemas menores. Altamente recomendado usar o ambiente hospedado.
 
 ### C++ Redistributable
 

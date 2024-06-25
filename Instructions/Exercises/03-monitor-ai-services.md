@@ -23,8 +23,6 @@ Você desenvolverá seu código usando o Visual Studio Code. Os arquivos de cód
 
 5. Expanda a pasta `Labfiles/03-monitor-ai-services`.
 
-Os códigos tanto em C# quanto em Python foram fornecidos. Expanda a pasta da linguagem escolhida.
-
 ## Provisionar um recurso dos Serviços de IA do Azure
 
 Caso ainda não tenha um na sua assinatura, provisione um recurso dos **Serviços de IA do Azure**.
