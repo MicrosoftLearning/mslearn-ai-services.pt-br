@@ -43,13 +43,16 @@ Caso ainda não tenha um na sua assinatura, provisione um recurso dos **Serviço
 
 ## Gerenciar chaves de autenticação
 
-Quando você criou seu recurso de serviços de IA do Azure, duas chaves de autenticação foram geradas. Você pode gerenciá-las no portal do Azure ou usando a CLI (Command Line Interface, interface de linha de comando) do Azure.
+Quando você criou seu recurso de serviços de IA do Azure, duas chaves de autenticação foram geradas. Você pode gerenciá-las no portal do Azure ou usando a CLI (Command Line Interface, interface de linha de comando) do Azure. 
 
-1. No portal do Azure, acesse o recurso de serviços de IA do Azure e visualize a página de **chaves e ponto de extremidade**. Esta página contém as informações que você precisará para se conectar ao seu recurso e usá-lo a partir de aplicativos que você desenvolve. Especificamente:
+1. Escolha um método para obter suas chaves de autenticação e ponto de extremidade: 
+
+    **Usando o portal do Azure**: no portal do Azure, acesse o recurso dos serviços de IA do Azure e visualize a página **Chaves e ponto de extremidade**. Esta página contém as informações que você precisará para se conectar ao seu recurso e usá-lo a partir de aplicativos que você desenvolve. Especificamente:
     - Um *ponto de extremidade* HTTP para o qual os aplicativos cliente podem enviar solicitações.
     - Duas *chaves* que podem ser usadas para autenticação (aplicativos cliente podem usar qualquer uma das chaves. Uma prática comum é usar uma para desenvolvimento e outra para produção. Você pode facilmente regenerar a chave de desenvolvimento depois que os desenvolvedores terminarem seu trabalho para impedir o acesso contínuo).
     - O *local* em que o recurso é hospedado. Isso é necessário para solicitações para algumas (mas não todas) APIs.
-2. Agora você pode usar o comando a seguir para obter a lista de chaves de serviços de IA do Azure, substituindo *&lt;resourceName&gt;* pelo nome do seu recurso de serviços de IA do Azure e *&lt;resourceGroup&gt;* pelo nome do grupo de recursos no qual você o criou.
+
+    **Usando a linha de comando**: como alternativa, você pode usar o comando a seguir para obter a lista de chaves de Serviços de IA do Azure. No Visual Studio Code, abra um novo terminal. Em seguida, cole o comando a seguir substituindo *&lt;resourceName&gt;* pelo nome do seu recurso de Serviços de IA do Azure e *&lt;resourceGroup&gt;* pelo nome do grupo de recursos no qual você o criou.
 
     ```
     az cognitiveservices account keys list --name <resourceName> --resource-group <resourceGroup>
@@ -57,15 +60,15 @@ Quando você criou seu recurso de serviços de IA do Azure, duas chaves de auten
 
     O comando retorna uma lista das chaves para seu recurso de serviços de IA do Azure — há duas chaves, chamadas **key1** e **key2**.
 
-    > **Dica**: Se você ainda não autenticou a CLI do Azure, execute `az login` e entre em sua conta.
+    > **Dica**: se você ainda não autenticou a CLI do Azure, execute `az login` e entre em sua conta.
 
-3. Para testar seu serviço de IA do Azure, você pode usar **curl** — uma ferramenta de linha de comando para solicitações HTTP. Na pasta **02-ai-services-security**, abra **rest-test.cmd** e edite o comando **curl** nela contido (mostrado abaixo), substituindo *&lt;yourEndpoint&gt;* e *&lt;yourKey&gt;* pelo URI do ponto de extremidade e a chave **Key1** para usar a API de análise de texto em seu recurso dos serviços de IA do Azure.
+2. Para testar seu serviço de IA do Azure, você pode usar **curl** — uma ferramenta de linha de comando para solicitações HTTP. Na pasta **02-ai-services-security**, abra **rest-test.cmd** e edite o comando **curl** nela contido (mostrado abaixo), substituindo *&lt;yourEndpoint&gt;* e *&lt;yourKey&gt;* pelo URI do ponto de extremidade e a chave **Key1** para usar a API de análise de texto em seu recurso dos serviços de IA do Azure.
 
     ```bash
-    curl -X POST "<yourEndpoint>/language/:analyze-text?api-version=2023-04-01" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: 81468b6728294aab99c489664a818197" --data-ascii "{'analysisInput':{'documents':[{'id':1,'text':'hello'}]}, 'kind': 'LanguageDetection'}"
+    curl -X POST "<yourEndpoint>/language/:analyze-text?api-version=2023-04-01" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <your-key>" --data-ascii "{'analysisInput':{'documents':[{'id':1,'text':'hello'}]}, 'kind': 'LanguageDetection'}"
     ```
 
-4. Salve as alterações e execute o seguinte comando:
+3. Salve suas alterações. No terminal, navegue até a pasta "02-ai-services-security". (**Observação**: você pode fazer isso clicando com o botão direito do mouse na pasta "02-ai-services-security" em seu explorer e selecionando *Abrir no Terminal Integrado*). Em seguida, execute o seguinte comando:
 
     ```
     ./rest-test.cmd
@@ -73,7 +76,7 @@ Quando você criou seu recurso de serviços de IA do Azure, duas chaves de auten
 
 O comando retorna um documento JSON contendo informações sobre o idioma detectado nos dados de entrada (que deve ser inglês).
 
-5. Se uma chave for comprometida ou os desenvolvedores que a possuem não precisarem mais de acesso, você poderá gerá-la novamente no portal ou usando a CLI do Azure. Execute o comando a seguir para gerar novamente sua **chave key1** (substituindo *&lt;resourceName&gt;* e *&lt;resourceGroup&gt;* pelo seu recurso).
+4. Se uma chave for comprometida ou os desenvolvedores que a possuem não precisarem mais de acesso, você poderá gerá-la novamente no portal ou usando a CLI do Azure. Execute o comando a seguir para gerar novamente sua **chave key1** (substituindo *&lt;resourceName&gt;* e *&lt;resourceGroup&gt;* pelo seu recurso).
 
     ```
     az cognitiveservices account keys regenerate --name <resourceName> --resource-group <resourceGroup> --key-name key1
@@ -81,8 +84,8 @@ O comando retorna um documento JSON contendo informações sobre o idioma detect
 
 A lista de chaves para seu recurso de serviços de IA do Azure é retornada - observe que a **key1** foi alterada desde a última vez que você as recuperou.
 
-6. Execute novamente o comando **rest-test** com a chave antiga (você pode usar a seta **^** no teclado para percorrer os comandos anteriores) e verifique se ele agora falha.
-7. Edite o comando *curl* em **rest-test.cmd** substituindo a chave pelo novo valor **key1** e salve as alterações. Em seguida, execute novamente o comando **rest-test** e verifique se ele foi bem-sucedido.
+5. Execute novamente o comando **rest-test** com a chave antiga (você pode usar a seta **^** no teclado para percorrer os comandos anteriores) e verifique se ele agora falha.
+6. Edite o comando *curl* em **rest-test.cmd** substituindo a chave pelo novo valor **key1** e salve as alterações. Em seguida, execute novamente o comando **rest-test** e verifique se ele foi bem-sucedido.
 
 > **Dica**: neste exercício, você usou os nomes completos dos parâmetros da CLI do Azure, como **--resource-group**.  Você também pode usar alternativas mais curtas, como **-g**, para tornar seus comandos menos detalhados (mas um pouco mais difíceis de entender).  A [referência do comando da CLI dos Serviços de IA do Azure](https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest) lista as opções de parâmetro para cada comando da CLI dos Serviços de IA do Azure.
 
@@ -113,7 +116,7 @@ Primeiro, você precisa criar um cofre de chaves e adicionar um *segredo* para a
 5. Selecione **+ Gerar/Importar** e adicione um novo segredo com as seguintes configurações:
     - **Opções de upload**: Manual.
     - **Nome**: AI-Services-Key *(é importante corresponder exatamente a isso, pois posteriormente você executará o código que recupera o segredo com base neste nome)*
-    - **Valor**: *Sua chave de serviços de IA do Azure **key1***
+    - **Valor secreto**: *sua chave dos Serviços de IA do Azure **key1***
 6. Selecione **Criar**.
 
 ### Criar uma entidade de serviço
@@ -167,16 +170,16 @@ Agora você está pronto para usar a identidade da entidade de serviço em um ap
 
     ```
     dotnet add package Azure.AI.TextAnalytics --version 5.3.0
-    dotnet add package Azure.Identity --version 1.5.0
-    dotnet add package Azure.Security.KeyVault.Secrets --version 4.2.0-beta.3
+    dotnet add package Azure.Identity --version 1.12.0
+    dotnet add package Azure.Security.KeyVault.Secrets --version 4.6.0
     ```
 
     **Python**
 
     ```
     pip install azure-ai-textanalytics==5.3.0
-    pip install azure-identity==1.5.0
-    pip install azure-keyvault-secrets==4.2.0
+    pip install azure-identity==1.17.1
+    pip install azure-keyvault-secrets==4.8.0
     ```
 
 3. Exiba o conteúdo da pasta **keyvault-client** e observe que ela contém um arquivo para definições de configuração:
