@@ -10,8 +10,6 @@ O uso dos serviços de IA do Azure hospedados no Azure permite que os desenvolve
 
 Muitas das APIs de serviços de IA do Azure podem ser empacotadas e implantadas em um *contêiner*, permitindo que as organizações hospedem os serviços de IA do Azure em sua própria infraestrutura, por exemplo, em servidores Docker locais, Instâncias de Contêiner do Azure ou clusters dos Serviços de Kubernetes do Azure. Os serviços de IA do Azure em contêineres precisam se comunicar com uma conta de serviços de IA do Azure baseada no Azure para dar suporte à cobrança; mas os dados do aplicativo não são passados para o serviço back-end, e as organizações têm maior controle sobre a configuração de implantação de seus contêineres, permitindo soluções personalizadas para autenticação, escalabilidade e outras considerações.
 
-> **Observação**: há um problema sendo investigado no momento em que alguns usuários atingem onde os contêineres não são implantados corretamente e as chamadas para esses contêineres falham. As atualizações neste laboratório serão feitas assim que o problema for resolvido.
-
 ## Clonar o repositório no Visual Studio Code
 
 Você desenvolverá seu código usando o Visual Studio Code. Os arquivos de código para seu aplicativo foram fornecidos em um repositório do GitHub.
