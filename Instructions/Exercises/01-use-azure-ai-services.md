@@ -30,7 +30,7 @@ Os códigos tanto em C# quanto em Python foram fornecidos. Expanda a pasta da li
 Os Serviços de IA do Azure são serviços baseados em nuvem que encapsulam recursos de inteligência artificial que você pode incorporar em seus aplicativos. Você pode provisionar recursos individuais de serviços de IA do Azure para APIs específicas (por exemplo, **Linguagem** ou **Visão**), ou pode provisionar um único recurso dos **Serviços de IA do Azure** que forneça acesso a várias APIs de serviços de IA do Azure por meio de um único ponto de extremidade e chave. Nesse caso, você usará um único recurso dos **Serviços de IA do Azure**.
 
 1. Abra o portal do Azure em `https://portal.azure.com` e entre usando a conta Microsoft associada à sua assinatura do Azure.
-2. Na barra de pesquisa superior, pesquise *serviços de IA do Azure*, selecione **Serviços de IA do Azure** e crie um recurso de conta multisserviço dos serviços de IA do Azure com as seguintes configurações:
+2. Na barra de pesquisa superior, pesquise *serviços de IA do Azure*, selecione **conta multisserviço dos serviços de IA do Azure** e crie um recurso com as seguintes configurações:
     - **Assinatura**: *sua assinatura do Azure*
     - **Grupo de recursos**: *escolha ou crie um grupo de recursos (se você estiver usando uma assinatura restrita, talvez não tenha permissão para criar um novo grupo de recursos; use o que foi fornecido)*
     - **Região**: *escolha uma região disponível*

@@ -30,7 +30,7 @@ Você desenvolverá seu código usando o Visual Studio Code. Os arquivos de cód
 Caso ainda não tenha um na sua assinatura, provisione um recurso dos **Serviços de IA do Azure**.
 
 1. Abra o portal do Azure em `https://portal.azure.com` e entre usando a conta Microsoft associada à sua assinatura do Azure.
-2. Na barra de pesquisa superior, pesquise *serviços de IA do Azure*, selecione **Serviços de IA do Azure** e crie um recurso de conta multisserviço dos serviços de IA do Azure com as seguintes configurações:
+2. Na barra de pesquisa superior, pesquise *serviços de IA do Azure*, selecione **conta multisserviço dos serviços de IA do Azure** e crie um recurso com as seguintes configurações:
     - **Assinatura**: *sua assinatura do Azure*
     - **Grupo de recursos**: *escolha ou crie um grupo de recursos (se você estiver usando uma assinatura restrita, talvez não tenha permissão para criar um novo grupo de recursos; use o que foi fornecido)*
     - **Região**: *escolha uma região disponível*
