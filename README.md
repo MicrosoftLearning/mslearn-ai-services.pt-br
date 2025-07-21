@@ -1,4 +1,6 @@
-# Desenvolver soluções de IA generativa no Azure
+# Desenvolver soluções de IA no Azure
+
+> **OBSERVAÇÃO**: este repositório está sendo arquivado e não é mais mantido. Visite o roteiro de aprendizagem [aplicativos de IA generativa](https://learn.microsoft.com/en-us/training/paths/create-custom-copilots-ai-studio/) e o [repositório do laboratório associado](https://github.com/MicrosoftLearning/mslearn-ai-studio) ou a [documentação da Fábrica de IA do Azure](https://learn.microsoft.com/en-us/azure/ai-foundry/)
 
 Os exercícios deste repositório foram elaborados para proporcionar uma experiência de aprendizado prática, na qual você explorará tarefas comuns que os desenvolvedores realizam ao criar soluções de IA generativa no Microsoft Azure.
 

@@ -97,6 +97,9 @@ Você pode desenvolver aplicativos que consomem serviços de IA do Azure usando 
 
 Primeiro, você precisa criar um cofre de chaves e adicionar um *segredo* para a chave de serviços de IA do Azure.
 
+Escolha um método para criar um cofre de chaves e adicionar um segredo:
+
+#### Usando o portal do Azure
 1. Anote o valor **key1** para seu recurso de serviços de IA do Azure (ou copie-o para a área de transferência).
 2. No portal do Azure, na **Página inicial**, selecione **&#65291; crie um botão de recurso**, procure por *cofre de chaves* e crie um recurso de **cofre de chaves** com as seguintes configurações:
 
@@ -118,6 +121,33 @@ Primeiro, você precisa criar um cofre de chaves e adicionar um *segredo* para a
     - **Nome**: AI-Services-Key *(é importante corresponder exatamente a isso, pois posteriormente você executará o código que recupera o segredo com base neste nome)*
     - **Valor secreto**: *sua chave dos Serviços de IA do Azure **key1***
 6. Selecione **Criar**.
+
+#### Usar a CLI do Azure
+Como alternativa, use a CLI do Azure para criar um cofre de chaves e adicionar um segredo.
+
+1. Abra um terminal no Visual Studio Code.
+2. Crie um Key Vault executando o comando a seguir, substituindo `<keyVaultName>`, `<resourceGroup>` e `<location>` pelo nome desejado para o Key Vault, o nome do grupo de recursos e a região do Azure (por exemplo, `eastus`):
+
+    ```
+    az keyvault create \
+      --name <key-vault-name> \
+      --resource-group <resource-group-name> \
+      --location <region> \
+      --sku standard \
+      --enable-rbac-authorization false
+    ```
+    O sinalizador `--enable-rbac-authorization false` garante que o modelo de permissão seja definido como "Política de acesso ao cofre" (o padrão).
+
+3. Adicione sua chave dos Serviços de IA do Azure como um segredo no Key Vault. Substitua `<keyVaultName>` pelo nome do Key Vault e `<your-key1-value>` pelo valor da chave1 dos Serviços de IA do Azure:
+
+    ```
+    az keyvault secret set \
+    --vault-name <key-vault-name> \
+    --name AI-Services-Key \
+    --value <your-azure-ai-services-key>
+    ```
+
+Você criou um Key Vault e armazenou sua chave dos Serviços de IA do Azure como um segredo chamado `AI-Services-Key`.
 
 ### Criar uma entidade de serviço
 
